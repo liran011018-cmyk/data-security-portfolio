@@ -1,5 +1,17 @@
+-- =========================================
+-- 项目名称：小说阅读 App 用户行为分析 SQL 练习
+-- 项目说明：通过用户表、小说表、阅读记录表和付费记录表，练习 SQL 建表、插入数据和基础查询。
+-- =========================================
+-- 一、选择数据库
 USE sql_practice;
 
+-- 二、删除旧表
+DROP TABLE IF EXISTS payments;
+DROP TABLE IF EXISTS reading_logs;
+DROP TABLE IF EXISTS books;
+DROP TABLE IF EXISTS users;
+
+-- 三、创建用户表
 CREATE TABLE users (
     user_id INT PRIMARY KEY,
     username VARCHAR(50),
@@ -8,6 +20,7 @@ CREATE TABLE users (
     register_date DATE
 );
 
+-- 四、创建小说表
 CREATE TABLE books (
     book_id INT PRIMARY KEY,
     book_name VARCHAR(100),
@@ -16,6 +29,7 @@ CREATE TABLE books (
     publish_date DATE
 );
 
+-- 五、创建阅读记录表
 CREATE TABLE reading_logs (
     log_id INT PRIMARY KEY,
     user_id INT,
@@ -24,6 +38,7 @@ CREATE TABLE reading_logs (
     read_minutes INT
 );
 
+-- 六、创建付费记录表
 CREATE TABLE payments (
     payment_id INT PRIMARY KEY,
     user_id INT,
@@ -32,7 +47,7 @@ CREATE TABLE payments (
     pay_type VARCHAR(20)
 );
 
-
+-- 七、插入模拟数据
 INSERT INTO users (user_id, username, city, age, register_date) VALUES
 (1, '张三', '北京', 22, '2026-01-01'),
 (2, '李四', '上海', 25, '2026-01-02'),
@@ -65,6 +80,7 @@ INSERT INTO payments (payment_id, user_id, pay_date, amount, pay_type) VALUES
 (3, 4, '2026-01-11', 49.90, '会员'),
 (4, 5, '2026-01-12', 19.90, '充值');
 
+-- 八、基础查询练习
 SELECT * FROM books;
 SELECT * FROM users;
 SELECT * FROM reading_logs;
