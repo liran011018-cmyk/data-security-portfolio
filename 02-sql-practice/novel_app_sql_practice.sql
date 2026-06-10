@@ -97,3 +97,5 @@ ORDER BY publish_date ASC;
 
 SELECT * FROM reading_logs
 WHERE read_minutes>30;
+
+-- 九、统计分析查询
